@@ -107,34 +107,32 @@ void Matriks :: SetData (int i, int j, int v)
 }
 
 // ambil elemen v di posisi data[i,j], i dan j terdefinisi
-int Matriks :: GetData (int i, int j)
-{
+int Matriks :: GetData (int i, int j) const {
 	return (b[i][j]);
 }
 
 // Mengembalikan n_brs
-int Matriks :: GetBrs()
-{
+int Matriks :: GetBrs() const {
 	return (n_brs);
 }
 
 // Mengembalikan n_kol
-int Matriks :: GetKol()
-{
+int Matriks :: GetKol() const {
 	return (n_kol);
 }
 
-int Matriks::Accumulate() {
+double Matriks::Accumulate() const {
   int sum = 0;
   for(int i = 0; i < n_brs; i++) {
-    for(int j = 0; j < n_kol; i++) {
-      sum += b[i][j];
+    for(int j = 0; j < n_kol; j++) {
+      if(b[i][j] != INFINITY)
+        sum += b[i][j];
     }
   }
   return(sum);
 }
 
-int Matriks::GetMinValueInRow(int i) {
+int Matriks::GetMinValueInRow(int i) const {
   int min = b[i][0];
   for(int j = 1; j < n_kol; j++) {
     if ((b[i][j] != INFINITY) && ((min == INFINITY)|| (b[i][j] < min))) {
@@ -148,21 +146,23 @@ int Matriks::GetMinValueInRow(int i) {
   }
 }
 
-int Matriks::GetSecondMinValueInRow(int i) {
+int Matriks::GetSecondMinValueInRow(int i) const {
   int first = b[i][0];
   int second = b[i][0];
   for(int j = 1; j < n_kol; j++) {
-    if(b[i][j] <= first) {
-      second = first;
-      first = b[i][j];
-    } else if((b[i][j] < second) && (b[i][j] > first)) {
-      second = b[i][j];
+    if (b[i][j] != INFINITY) {
+      if((first == INFINITY) || (b[i][j] <= first)) {
+        second = first;
+        first = b[i][j];
+      } else if(((b[i][j] < second) || (second == INFINITY)) && (b[i][j] > first)) {
+        second = b[i][j];
+      }
     }
   }
   return(second);
 }
 
-int Matriks::GetMinValueInCol(int j) {
+int Matriks::GetMinValueInCol(int j) const {
   int min = b[0][j];
   for(int i = 1; i < n_brs; i++) {
     if ((b[i][j] != INFINITY) && ((min == INFINITY)|| (b[i][j] < min))) {

@@ -34,25 +34,25 @@ class Matriks {
     void SetData (int i, int j, int v);
 
     // ambil elemen v di posisi data[i,j], i dan j terdefinisi
-    int GetData (int i, int j);
+    int GetData (int i, int j) const;
 
     // Mengembalikan n_brs
-    int GetBrs();
+    int GetBrs() const;
 
     // Mengembalikan n_kol
-    int GetKol();
+    int GetKol() const;
 
     // Mengakumulasi setiap sel dalam matriks
-    int Accumulate();
+    double Accumulate() const;
 
     // Mencari nilai minimum dalam baris i
-    int GetMinValueInRow(int i);
+    int GetMinValueInRow(int i) const;
 
     // Mencari nilai minimum kedua dalam baris i
-    int GetSecondMinValueInRow(int i);
+    int GetSecondMinValueInRow(int i) const;
 
     // Mencari nilai maksimum dalam kolom j
-    int GetMinValueInCol(int j);
+    int GetMinValueInCol(int j) const;
 
   protected:
     int n_brs; // Banyaknya baris, n_brs > 0

@@ -27,12 +27,20 @@ void CTMatrix::ProcessNode(int dest, const Matriks& adj) {
   int origin = path.back();
   path.push_back(dest);
   int value = adj.GetData(origin, dest);
+  if(origin == 0) {
+    if(value == adj.GetMinValueInRow(origin))
+      b[origin][0] = adj.GetSecondMinValueInRow(origin);
+    else
+      b[origin][0] = adj.GetMinValueInRow(origin);
+  }
   b[origin][1] = value;
   b[dest][0] = value;
-  if(value == adj.GetMinValueInRow(dest))
-    b[dest][1] = adj.GetSecondMinValueInRow(dest);
-  else
-    b[dest][1] = adj.GetMinValueInRow(dest);
+  if(dest != 0) {
+    if(value == adj.GetMinValueInRow(dest))
+      b[dest][1] = adj.GetSecondMinValueInRow(dest);
+    else
+      b[dest][1] = adj.GetMinValueInRow(dest);
+  }
   cost = CalculateCost();
 }
 

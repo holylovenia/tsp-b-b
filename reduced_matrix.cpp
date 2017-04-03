@@ -1,3 +1,5 @@
+// File: reduced_matrix.h
+
 #include "reduced_matrix.h"
 
 ReducedMatrix::ReducedMatrix(): Matriks() {

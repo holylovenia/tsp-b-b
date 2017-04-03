@@ -1,3 +1,5 @@
+// File: reduced_matrix.h
+
 #ifndef REDUCED_MATRIX_H
 #define REDUCED_MATRIX_H
 
@@ -53,6 +55,5 @@ class ReducedMatrix: public Matriks {
     vector<int> path;
     int cost;
 };
-
 
 #endif

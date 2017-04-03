@@ -1,5 +1,6 @@
-#include "ct_matrix.h"
+// File: ct_matrix.h
 
+#include "ct_matrix.h"
 
 CTMatrix::CTMatrix(const Matriks& adj): Matriks(adj.GetBrs(), 2) {
   path.push_back(0);

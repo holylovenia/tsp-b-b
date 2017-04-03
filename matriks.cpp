@@ -1,5 +1,4 @@
-// HOLY LOVENIA - 13515113
-
+// File: matriks.cpp
 
 #include "matriks.h"
 #include <iostream>
@@ -11,8 +10,7 @@ using namespace std;
 
 // ctor dengan param n (banyaknya baris) dan m (banyaknya kolom)
 // Seluruh elemen matriks diinisialisasi dengan nilai 0
-Matriks::Matriks()
-{
+Matriks::Matriks() {
   ifstream fname;
   fname.open(FILE_NAME);
   fname >> n_brs;
@@ -44,8 +42,7 @@ Matriks::Matriks(int row, int col) {
 }
 
 // cctor
-Matriks::Matriks(const Matriks& m)
-{
+Matriks::Matriks(const Matriks& m) {
   n_brs = m.n_brs;
   n_kol = m.n_kol;
 	b = new int* [n_brs];
@@ -60,8 +57,7 @@ Matriks::Matriks(const Matriks& m)
 }
 
 // dtor
-Matriks::~Matriks()
-{
+Matriks::~Matriks() {
 	for (int i = 0; i < n_brs; i++)
 	{
 		delete [] b[i];
@@ -71,8 +67,7 @@ Matriks::~Matriks()
 
 // operator= menjamin tidak bitwise copy.
 // dan dapat melakukan assignment m1=m2{} prekondisi: ukuran m1=ukuran m2
-Matriks& Matriks::operator= (Matriks& m)
-{
+Matriks& Matriks::operator= (Matriks& m) {
 	b = new int* [m.GetBrs()];
 	for (int i = 0; i < m.GetBrs(); i++)
 	{
@@ -101,8 +96,7 @@ void Matriks::PrintMatriks() {
 }
 
 // isikan nilai v di posisi data[i,j], i dan j terdefinisi
-void Matriks :: SetData (int i, int j, int v)
-{
+void Matriks :: SetData (int i, int j, int v) {
 	b[i][j] = v;
 }
 

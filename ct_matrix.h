@@ -1,15 +1,16 @@
+// File: ct_matrix.h
+
 #ifndef CT_MATRIX_H
 #define CT_MATRIX_H
 
 #include "matriks.h"
 #include <vector>
 
-
 class CTMatrix: public Matriks {
 	public:
-		// Constructor
-		// Jumlah baris = n dan jumlah kolom = 2
-		CTMatrix(const Matriks& adj);
+    // Constructor
+    // Jumlah baris = n dan jumlah kolom = 2
+    CTMatrix(const Matriks& adj);
 
     // Copy constructor
     CTMatrix(const CTMatrix& c);
